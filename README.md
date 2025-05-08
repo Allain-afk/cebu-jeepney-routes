@@ -88,4 +88,6 @@ The jeepney route data in this application is sample data for demonstration purp
 
 ## Inspiration
 
-This project was inspired by [enroute-cebu](https://enroute-cebu.vercel.app/), adapting their clean interface design while building our own implementation.
+## License
+
+MIT 
