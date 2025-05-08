@@ -61,7 +61,3 @@ The jeepney route data in this application is sample data for demonstration purp
 - Add fare calculation based on distance
 - Include route schedules and estimated wait times
 - Add user accounts to save frequent routes
-
-## License
-
-MIT 
