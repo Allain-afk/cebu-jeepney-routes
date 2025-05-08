@@ -2,6 +2,8 @@
 
 A React TypeScript application that helps users find jeepney routes in Cebu City, Philippines. This app allows users to select their starting point and destination, then provides the best jeepney routes to get there, including direct routes and routes that require transfers.
 
+![Cebu Jeepney Routes Finder](https://github.com/username/cebu-jeepney-routes/raw/main/public/screenshot.png)
+
 ## Features
 
 - Easy-to-use interface with a clean, modern design
@@ -13,17 +15,28 @@ A React TypeScript application that helps users find jeepney routes in Cebu City
 - Detailed route information including transfer points
 - Mobile-responsive design for use on any device
 
+## Demo
+
+Visit the live demo: [Cebu Jeepney Routes Finder](https://cebu-jeepney-routes.vercel.app)
+
 ## Installation
 
-1. Clone this repository
+1. Clone this repository:
+   ```
+   git clone https://github.com/username/cebu-jeepney-routes.git
+   cd cebu-jeepney-routes
+   ```
+
 2. Install dependencies:
    ```
    npm install
    ```
+
 3. Start the development server:
    ```
    npm start
    ```
+
 4. Open [http://localhost:3000](http://localhost:3000) to view the app in your browser
 
 ## Tech Stack
@@ -76,6 +89,13 @@ The application features a clean, intuitive interface inspired by modern transit
 
 The jeepney route data in this application is sample data for demonstration purposes. In a production environment, this would be replaced with accurate and up-to-date route information from official sources.
 
+## Performance Optimizations
+
+- Efficient route-finding algorithm to quickly calculate optimal routes
+- Memoized components to prevent unnecessary re-renders
+- Lazy loading of map component only when needed
+- Optimized location suggestions with debounced input
+
 ## Future Enhancements
 
 - Add more complete and accurate jeepney route data
@@ -88,6 +108,18 @@ The jeepney route data in this application is sample data for demonstration purp
 
 ## Inspiration
 
+This project was inspired by [enroute-cebu](https://enroute-cebu.vercel.app/), adapting their clean interface design while building our own implementation. The goal was to create a user-friendly application that makes navigating Cebu's complex jeepney system easier for both locals and tourists.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
 ## License
 
-MIT 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
