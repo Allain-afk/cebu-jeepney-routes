@@ -9,11 +9,13 @@ import './App.css';
 const App: React.FC = () => {
   const { searchRoutes, results, isLoading, error } = useRouteSearch();
   const [selectedRoute, setSelectedRoute] = useState<RouteResult | null>(null);
+  const [searchPerformed, setSearchPerformed] = useState<boolean>(false);
   
   // Memoize the search handler to prevent unnecessary re-renders
   const handleSearch = useCallback((startPoint: string, destination: string) => {
     searchRoutes(startPoint, destination);
     setSelectedRoute(null);
+    setSearchPerformed(true);
   }, [searchRoutes]);
   
   // Memoize the route selection handler
@@ -47,19 +49,31 @@ const App: React.FC = () => {
             )}
           </div>
           
-          <div className="results-section">
-            <div className="results-list">
-              <RouteResults 
-                results={results} 
-                onSelectRoute={handleSelectRoute}
-                selectedRouteId={selectedRoute?.primaryRoute?.id}
-              />
+          {searchPerformed && (
+            <div className="results-section">
+              {results.length === 0 && !isLoading && !error ? (
+                <div className="no-results-message">
+                  <p>No routes found between these locations. Please try different locations.</p>
+                </div>
+              ) : (
+                <>
+                  <div className="results-list">
+                    <RouteResults 
+                      results={results} 
+                      onSelectRoute={handleSelectRoute}
+                      selectedRouteId={selectedRoute?.primaryRoute?.id}
+                    />
+                  </div>
+                  
+                  {results.length > 0 && (
+                    <div className="map-section">
+                      <RouteMap selectedRoute={mapSelectedRoute} />
+                    </div>
+                  )}
+                </>
+              )}
             </div>
-            
-            <div className="map-section">
-              <RouteMap selectedRoute={mapSelectedRoute} />
-            </div>
-          </div>
+          )}
         </div>
       </main>
       

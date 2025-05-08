@@ -213,96 +213,105 @@ const RouteSearchForm: React.FC<RouteSearchFormProps> = ({ onSearch, isLoading }
     <div className="search-form-container">
       <h2>Find Jeepney Routes in Cebu</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="startInput">Starting Point:</label>
-          <div className="input-with-suggestions">
-            <input 
-              id="startInput" 
-              type="text"
-              value={startInput} 
-              onChange={handleStartInputChange}
-              onFocus={() => setShowStartSuggestions(true)}
-              onBlur={handleStartBlur}
-              placeholder="Enter your starting location"
-              required
-            />
-            
-            {showStartSuggestions && startSuggestions.length > 0 && (
-              <ul className="suggestions-list">
-                {startSuggestions.map((suggestion, index) => (
-                  <li 
-                    key={index} 
-                    onClick={() => selectStartSuggestion(suggestion)}
+        <div className="location-selection">
+          <div className="location-container">
+            <span className="location-label">From</span>
+            <div className="form-group">
+              <div className="input-with-suggestions">
+                <input 
+                  id="startInput" 
+                  type="text"
+                  value={startInput} 
+                  onChange={handleStartInputChange}
+                  onFocus={() => setShowStartSuggestions(true)}
+                  onBlur={handleStartBlur}
+                  placeholder="Select a location"
+                  required
+                />
+                
+                {showStartSuggestions && startSuggestions.length > 0 && (
+                  <ul className="suggestions-list">
+                    {startSuggestions.map((suggestion, index) => (
+                      <li 
+                        key={index} 
+                        onClick={() => selectStartSuggestion(suggestion)}
+                      >
+                        {suggestion.location.name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              {startInput && !startLocation && !showStartSuggestions && startSuggestions.length > 0 && (
+                <div className="suggestion-hint">
+                  Did you mean: <button 
+                    type="button" 
+                    className="suggestion-button"
+                    onClick={() => selectStartSuggestion(startSuggestions[0])}
                   >
-                    {suggestion.location.name}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          {startInput && !startLocation && !showStartSuggestions && startSuggestions.length > 0 && (
-            <div className="suggestion-hint">
-              Did you mean: <button 
-                type="button" 
-                className="suggestion-button"
-                onClick={() => selectStartSuggestion(startSuggestions[0])}
-              >
-                {startSuggestions[0].location.name}
-              </button>?
+                    {startSuggestions[0].location.name}
+                  </button>?
+                </div>
+              )}
             </div>
-          )}
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="destInput">Destination:</label>
-          <div className="input-with-suggestions">
-            <input 
-              id="destInput" 
-              type="text"
-              value={destInput} 
-              onChange={handleDestInputChange}
-              onFocus={() => setShowDestSuggestions(true)}
-              onBlur={handleDestBlur}
-              placeholder="Enter your destination"
-              required
-            />
-            
-            {showDestSuggestions && destSuggestions.length > 0 && (
-              <ul className="suggestions-list">
-                {destSuggestions.map((suggestion, index) => (
-                  <li 
-                    key={index} 
-                    onClick={() => selectDestSuggestion(suggestion)}
+          </div>
+
+          <div className="location-container">
+            <span className="location-label">To</span>
+            <div className="form-group">
+              <div className="input-with-suggestions">
+                <input 
+                  id="destInput" 
+                  type="text"
+                  value={destInput} 
+                  onChange={handleDestInputChange}
+                  onFocus={() => setShowDestSuggestions(true)}
+                  onBlur={handleDestBlur}
+                  placeholder="Select a location"
+                  required
+                />
+                
+                {showDestSuggestions && destSuggestions.length > 0 && (
+                  <ul className="suggestions-list">
+                    {destSuggestions.map((suggestion, index) => (
+                      <li 
+                        key={index} 
+                        onClick={() => selectDestSuggestion(suggestion)}
+                      >
+                        {suggestion.location.name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              {destInput && !destLocation && !showDestSuggestions && destSuggestions.length > 0 && (
+                <div className="suggestion-hint">
+                  Did you mean: <button 
+                    type="button" 
+                    className="suggestion-button"
+                    onClick={() => selectDestSuggestion(destSuggestions[0])}
                   >
-                    {suggestion.location.name}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          {destInput && !destLocation && !showDestSuggestions && destSuggestions.length > 0 && (
-            <div className="suggestion-hint">
-              Did you mean: <button 
-                type="button" 
-                className="suggestion-button"
-                onClick={() => selectDestSuggestion(destSuggestions[0])}
-              >
-                {destSuggestions[0].location.name}
-              </button>?
+                    {destSuggestions[0].location.name}
+                  </button>?
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
-        
+
+        {error && (
+          <div className="error-container">
+            <div className="error-message">{error}</div>
+          </div>
+        )}
+
         <button 
           type="submit" 
+          className="find-route-btn"
           disabled={isLoading}
         >
-          {isLoading ? 'Finding Routes...' : 'Find Routes'}
+          {isLoading ? 'Finding Routes...' : 'Find Route'}
         </button>
-        
-        {error && (
-          <p className="error-message">{error}</p>
-        )}
       </form>
     </div>
   );

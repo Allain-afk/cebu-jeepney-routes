@@ -530,6 +530,55 @@ const locations: { [key: string]: Location } = {
     name: 'Cabancalan',
     coordinates: [10.3680, 123.9200],
     aliases: ['cabancalan']
+  },
+  // Adding final set of key locations
+  F_RAMOS: {
+    id: 'F_RAMOS',
+    name: 'F. Ramos Street',
+    coordinates: [10.3030, 123.8953],
+    aliases: ['f ramos', 'f. ramos', 'ramos street']
+  },
+  GEN_ECHAVEZ: {
+    id: 'GEN_ECHAVEZ',
+    name: 'Gen. Echavez Street',
+    coordinates: [10.3050, 123.9000],
+    aliases: ['gen echavez', 'echavez', 'general echavez']
+  },
+  URGELLO_JONES: {
+    id: 'URGELLO_JONES',
+    name: 'Urgello-Jones Intersection',
+    coordinates: [10.2990, 123.9010],
+    aliases: ['urgello jones', 'jones urgello']
+  },
+  PIER1: {
+    id: 'PIER1',
+    name: 'Pier 1',
+    coordinates: [10.2940, 123.9060],
+    aliases: ['pier 1', 'pier1']
+  },
+  PIER2: {
+    id: 'PIER2',
+    name: 'Pier 2',
+    coordinates: [10.2950, 123.9065],
+    aliases: ['pier 2', 'pier2']
+  },
+  PIER3: {
+    id: 'PIER3',
+    name: 'Pier 3',
+    coordinates: [10.2960, 123.9070],
+    aliases: ['pier 3', 'pier3']
+  },
+  PIER4: {
+    id: 'PIER4',
+    name: 'Pier 4',
+    coordinates: [10.2970, 123.9075],
+    aliases: ['pier 4', 'pier4']
+  },
+  PLAZA_SUGBO: {
+    id: 'PLAZA_SUGBO',
+    name: 'Plaza Sugbo',
+    coordinates: [10.2935, 123.9015],
+    aliases: ['plaza sugbo', 'city hall']
   }
 };
 
@@ -671,10 +720,31 @@ export const jeepneyRoutes: JeepneyRoute[] = [
     color: '#9B59B6',
     stops: [
       locations.AYALA,
+      locations.BASELINE,
+      locations.FUENTE_OSMENA,
+      locations.CAPITOL,
+      locations.UCMED,
+      locations.GEN_ECHAVEZ,
       locations.MABOLO,
       locations.SM_CEBU
     ],
-    fare: 11.00
+    fare: 11.00,
+    pathSegments: [
+      {
+        from: locations.AYALA,
+        to: locations.SM_CEBU,
+        waypoints: [
+          { coordinates: [10.3178, 123.9054] }, // Ayala
+          { coordinates: [10.3068, 123.8941] }, // Baseline
+          { coordinates: [10.3103, 123.8914] }, // Fuente Osmeña
+          { coordinates: [10.3182, 123.8908] }, // Capitol
+          { coordinates: [10.3044, 123.8918] }, // UC Med
+          { coordinates: [10.3050, 123.9000] }, // Gen. Echavez
+          { coordinates: [10.3161, 123.9141] }, // Mabolo
+          { coordinates: [10.3118, 123.9154] }  // SM City Cebu
+        ]
+      }
+    ]
   },
   {
     id: '04B',
@@ -895,9 +965,27 @@ export const jeepneyRoutes: JeepneyRoute[] = [
     color: '#E67E22',
     stops: [
       locations.MAMBALING,
+      locations.TABOAN,
+      locations.TABO_AN,
+      locations.CARBON,
+      locations.PLAZA_SUGBO,
       locations.COLON
     ],
-    fare: 11.00
+    fare: 11.00,
+    pathSegments: [
+      {
+        from: locations.MAMBALING,
+        to: locations.COLON,
+        waypoints: [
+          { coordinates: [10.2915, 123.8803] }, // Mambaling
+          { coordinates: [10.2918, 123.8954] }, // Taboan
+          { coordinates: [10.2925, 123.8960] }, // Tabo-an
+          { coordinates: [10.2928, 123.8977] }, // Carbon
+          { coordinates: [10.2935, 123.9015] }, // Plaza Sugbo
+          { coordinates: [10.2957, 123.8983] }  // Colon
+        ]
+      }
+    ]
   },
   {
     id: '10F',
@@ -916,10 +1004,32 @@ export const jeepneyRoutes: JeepneyRoute[] = [
     name: 'Pardo - Magallanes',
     color: '#95A5A6',
     stops: [
+      locations.TABUNOK,
+      locations.LINAO,
       locations.PARDO,
+      locations.BULACAO_PARDO,
+      locations.LABANGON,
+      locations.MAMBALING,
+      locations.CARBON,
       locations.COLON
     ],
-    fare: 11.00
+    fare: 11.00,
+    pathSegments: [
+      {
+        from: locations.TABUNOK,
+        to: locations.COLON,
+        waypoints: [
+          { coordinates: [10.2550, 123.8550] }, // Tabunok
+          { coordinates: [10.2620, 123.8580] }, // Linao
+          { coordinates: [10.2700, 123.8650] }, // Pardo
+          { coordinates: [10.2700, 123.8613] }, // Bulacao Pardo
+          { coordinates: [10.2986, 123.8796] }, // Labangon
+          { coordinates: [10.2915, 123.8803] }, // Mambaling
+          { coordinates: [10.2928, 123.8977] }, // Carbon
+          { coordinates: [10.2957, 123.8983] }  // Colon
+        ]
+      }
+    ]
   },
   {
     id: '10H',
@@ -976,10 +1086,29 @@ export const jeepneyRoutes: JeepneyRoute[] = [
     color: '#1E8449',
     stops: [
       locations.PARDO,
+      locations.BULACAO_PARDO,
+      locations.LINAO,
       locations.MAMBALING,
+      locations.TABOAN,
+      locations.CARBON,
       locations.COLON
     ],
-    fare: 11.00
+    fare: 11.00,
+    pathSegments: [
+      {
+        from: locations.PARDO,
+        to: locations.COLON,
+        waypoints: [
+          { coordinates: [10.2700, 123.8650] }, // Pardo
+          { coordinates: [10.2700, 123.8613] }, // Bulacao
+          { coordinates: [10.2620, 123.8580] }, // Linao
+          { coordinates: [10.2915, 123.8803] }, // Mambaling
+          { coordinates: [10.2918, 123.8954] }, // Taboan
+          { coordinates: [10.2928, 123.8977] }, // Carbon
+          { coordinates: [10.2957, 123.8983] }  // Colon
+        ]
+      }
+    ]
   },
   {
     id: '12D',
@@ -1121,10 +1250,27 @@ export const jeepneyRoutes: JeepneyRoute[] = [
     color: '#FF4500',
     stops: [
       locations.AYALA,
-      locations.CAPITOL,
+      locations.BASELINE,
+      locations.FUENTE_OSMENA,
+      locations.F_RAMOS,
+      locations.URGELLO_JONES,
       locations.COLON
     ],
-    fare: 11.00
+    fare: 11.00,
+    pathSegments: [
+      {
+        from: locations.AYALA,
+        to: locations.COLON,
+        waypoints: [
+          { coordinates: [10.3178, 123.9054] }, // Ayala
+          { coordinates: [10.3068, 123.8941] }, // Baseline
+          { coordinates: [10.3103, 123.8914] }, // Fuente Osmeña
+          { coordinates: [10.3030, 123.8953] }, // F. Ramos
+          { coordinates: [10.2990, 123.9010] }, // Urgello-Jones
+          { coordinates: [10.2957, 123.8983] }  // Colon
+        ]
+      }
+    ]
   },
   {
     id: '17B',
@@ -1326,10 +1472,24 @@ export const jeepneyRoutes: JeepneyRoute[] = [
     name: 'Parkmall - Punta Engaño',
     color: '#5499C7',
     stops: [
+      locations.PARKMALL,
       locations.MANDAUE,
+      locations.BRIDGE,
       locations.MABOLO
     ],
-    fare: 11.00
+    fare: 11.00,
+    pathSegments: [
+      {
+        from: locations.PARKMALL,
+        to: locations.MABOLO,
+        waypoints: [
+          { coordinates: [10.3295, 123.9217] }, // Parkmall
+          { coordinates: [10.3321, 123.9379] }, // Mandaue
+          { coordinates: [10.3338, 123.9467] }, // Marcelo Fernan Bridge
+          { coordinates: [10.3161, 123.9141] }  // Mabolo
+        ]
+      }
+    ]
   },
   {
     id: '23D',
@@ -1386,9 +1546,27 @@ export const jeepneyRoutes: JeepneyRoute[] = [
     color: '#8A2BE2',
     stops: [
       locations.AYALA,
+      locations.BASELINE,
+      locations.FUENTE_OSMENA,
+      locations.F_RAMOS,
+      locations.MAMBALING,
       locations.SM_SEASIDE
     ],
-    fare: 11.00
+    fare: 11.00,
+    pathSegments: [
+      {
+        from: locations.AYALA,
+        to: locations.SM_SEASIDE,
+        waypoints: [
+          { coordinates: [10.3178, 123.9054] }, // Ayala
+          { coordinates: [10.3068, 123.8941] }, // Baseline
+          { coordinates: [10.3103, 123.8914] }, // Fuente Osmeña
+          { coordinates: [10.3030, 123.8953] }, // F. Ramos
+          { coordinates: [10.2915, 123.8803] }, // Mambaling
+          { coordinates: [10.2712, 123.8786] }  // SM Seaside
+        ]
+      }
+    ]
   },
   
   // Adding bus routes from IT Park Terminal
