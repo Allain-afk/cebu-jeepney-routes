@@ -2,7 +2,7 @@
 
 A React TypeScript application that helps users find jeepney routes in Cebu City, Philippines. This app allows users to select their starting point and destination, then provides the best jeepney routes to get there, including direct routes and routes that require transfers.
 
-![Cebu Jeepney Routes Finder](https://github.com/username/cebu-jeepney-routes/public/Preview.png)
+![Cebu Jeepney Routes Finder](https://github.com/Allain-afk/cebu-jeepney-routes/public/Preview.png)
 
 ## Features
 
